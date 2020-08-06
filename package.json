@@ -2,6 +2,23 @@
   "name": "ember-cli-chart",
   "version": "3.5.0",
   "description": "Ember component for ChartJS",
+  "keywords": [
+    "ember-addon"
+  ],
+  "homepage": "https://github.com/aomran/ember-cli-chart",
+  "bugs": {
+    "url": "https://github.com/aomran/ember-cli-chart/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aomran/ember-cli-chart.git"
+  },
+  "license": "MIT",
+  "author": "Ahmed Omran",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
   "scripts": {
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
@@ -16,23 +33,6 @@
     "ember-cli-node-assets": "^0.2.2",
     "fastboot-transform": "^0.1.2"
   },
-  "keywords": [
-    "ember-addon"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aomran/ember-cli-chart.git"
-  },
-  "license": "MIT",
-  "author": "Ahmed Omran",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
-  "bugs": {
-    "url": "https://github.com/aomran/ember-cli-chart/issues"
-  },
-  "homepage": "https://github.com/aomran/ember-cli-chart",
   "devDependencies": {
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
@@ -58,12 +58,32 @@
     "eslint-plugin-ember": "^6.2.0",
     "eslint-plugin-node": "^9.0.1",
     "loader.js": "^4.7.0",
-    "qunit-dom": "^0.8.4"
+    "qunit-dom": "^0.8.4",
+    "release-it": "^13.6.5",
+    "release-it-lerna-changelog": "^2.3.0"
   },
   "engines": {
     "node": "8.* || >= 10.*"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": false
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    }
   }
 }
